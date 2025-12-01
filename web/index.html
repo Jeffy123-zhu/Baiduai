@@ -52,78 +52,62 @@
             <p class="section-desc">Watch data flow through the pipeline</p>
             
             <div class="neural-network">
-                <svg class="network-svg" viewBox="0 0 1000 400">
-                    <defs>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                            <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    
+                <svg class="network-svg" viewBox="0 0 1000 400" id="networkSvg">
                     <!-- Connections -->
                     <g class="connections" stroke="#30363d" stroke-width="2" fill="none">
-                        <path d="M150,200 Q275,120 350,150"/>
-                        <path d="M150,200 Q275,280 350,250"/>
-                        <path d="M350,150 L450,200"/>
-                        <path d="M350,250 L450,200"/>
-                        <path d="M550,200 Q625,120 700,150"/>
-                        <path d="M550,200 L700,200"/>
-                        <path d="M550,200 Q625,280 700,250"/>
-                        <path d="M700,150 L850,200"/>
-                        <path d="M700,200 L850,200"/>
-                        <path d="M700,250 L850,200"/>
+                        <path class="conn" id="conn-input" d="M190,200 Q270,140 310,150"/>
+                        <path class="conn" id="conn-ocr" d="M390,150 L460,200"/>
+                        <path class="conn" id="conn-coord1" d="M540,200 Q610,140 660,150"/>
+                        <path class="conn" id="conn-coord2" d="M540,200 L660,200"/>
+                        <path class="conn" id="conn-coord3" d="M540,200 Q610,260 660,250"/>
+                        <path class="conn" id="conn-analysis" d="M740,150 L810,200"/>
+                        <path class="conn" id="conn-summary" d="M740,200 L810,200"/>
+                        <path class="conn" id="conn-qa" d="M740,250 L810,200"/>
                     </g>
                     
                     <!-- Input Node -->
-                    <g class="node">
-                        <circle cx="150" cy="200" r="40" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+                    <g class="node pulse" id="node-input">
+                        <circle cx="150" cy="200" r="40" fill="#161b22" stroke="#2563eb" stroke-width="2"/>
                         <text x="150" y="205" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="600">IN</text>
                         <text x="150" y="260" text-anchor="middle" fill="#7d8590" font-size="11">Document</text>
                     </g>
                     
                     <!-- OCR Node -->
-                    <g class="node">
+                    <g class="node" id="node-ocr">
                         <circle cx="350" cy="150" r="35" fill="#161b22" stroke="#06b6d4" stroke-width="2"/>
                         <text x="350" y="155" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">OCR</text>
                         <text x="350" y="200" text-anchor="middle" fill="#7d8590" font-size="10">PaddleOCR</text>
                     </g>
                     
                     <!-- Coordinator Node -->
-                    <g class="node">
+                    <g class="node pulse" id="node-coordinator">
                         <circle cx="500" cy="200" r="50" fill="#161b22" stroke="#2563eb" stroke-width="3"/>
                         <text x="500" y="195" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="600">CORE</text>
                         <text x="500" y="212" text-anchor="middle" fill="#7d8590" font-size="10">Coordinator</text>
-                        <text x="500" y="270" text-anchor="middle" fill="#7d8590" font-size="10">CAMEL-AI</text>
                     </g>
                     
                     <!-- Analysis Node -->
-                    <g class="node">
+                    <g class="node" id="node-analysis">
                         <circle cx="700" cy="150" r="35" fill="#161b22" stroke="#ec4899" stroke-width="2"/>
                         <text x="700" y="155" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">ANA</text>
-                        <text x="700" y="200" text-anchor="middle" fill="#7d8590" font-size="10">Analysis</text>
                     </g>
                     
                     <!-- Summary Node -->
-                    <g class="node">
+                    <g class="node" id="node-summary">
                         <circle cx="700" cy="200" r="35" fill="#161b22" stroke="#84cc16" stroke-width="2"/>
                         <text x="700" y="205" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">SUM</text>
                     </g>
                     
                     <!-- QA Node -->
-                    <g class="node">
+                    <g class="node" id="node-qa">
                         <circle cx="700" cy="250" r="35" fill="#161b22" stroke="#f59e0b" stroke-width="2"/>
                         <text x="700" y="255" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Q&A</text>
-                        <text x="700" y="300" text-anchor="middle" fill="#7d8590" font-size="10">Dialog</text>
                     </g>
                     
                     <!-- Output Node -->
-                    <g class="node">
-                        <circle cx="850" cy="200" r="40" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+                    <g class="node" id="node-output">
+                        <circle cx="850" cy="200" r="40" fill="#161b22" stroke="#22c55e" stroke-width="2"/>
                         <text x="850" y="205" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="600">OUT</text>
-                        <text x="850" y="260" text-anchor="middle" fill="#7d8590" font-size="11">Result</text>
                     </g>
                 </svg>
                 

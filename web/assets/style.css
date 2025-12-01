@@ -185,6 +185,50 @@ body {
     height: auto;
 }
 
+.network-svg .node circle {
+    transition: all 0.3s;
+}
+
+.network-svg .node:hover circle {
+    filter: drop-shadow(0 0 8px var(--primary));
+}
+
+.network-svg .node.active circle {
+    filter: drop-shadow(0 0 12px var(--primary));
+    stroke-width: 3;
+}
+
+/* Data flow animation */
+@keyframes flowPulse {
+    0% { stroke-dashoffset: 100; opacity: 0; }
+    50% { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+.network-svg .connections path {
+    stroke-dasharray: 10 5;
+    animation: flowDash 2s linear infinite;
+}
+
+@keyframes flowDash {
+    to { stroke-dashoffset: -30; }
+}
+
+.network-svg .connections path.active {
+    stroke: var(--primary);
+    stroke-width: 3;
+}
+
+/* Pulse animation for nodes */
+@keyframes nodePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.network-svg .node.pulse circle {
+    animation: nodePulse 1.5s ease-in-out infinite;
+}
+
 .network-controls {
     display: flex;
     align-items: center;
@@ -221,11 +265,17 @@ body {
     height: 8px;
     background: var(--text-muted);
     border-radius: 50%;
+    transition: all 0.3s;
 }
 
 .status-dot.active {
     background: #22c55e;
     box-shadow: 0 0 8px #22c55e;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
 }
 
 /* Demo */
