@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuMind - Multi-Agent Document Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="neural-bg">
+        <canvas id="neuralCanvas"></canvas>
+    </div>
+    
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-neural">
+                    <span class="neuron n1"></span>
+                    <span class="neuron n2"></span>
+                    <span class="neuron n3"></span>
+                    <span class="synapse s1"></span>
+                    <span class="synapse s2"></span>
+                </div>
+                <span class="logo-text">DocuMind</span>
+            </div>
+            <nav class="nav">
+                <a href="#neural-core">Agents</a>
+                <a href="#demo">Demo</a>
+                <a href="#tech">Tech</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-badge">ERNIE & PaddlePaddle Hackathon 2025</div>
+            <h1 class="hero-title">
+                <span class="title-line">Multi-Agent</span>
+                <span class="title-line gradient">Document Intelligence</span>
+            </h1>
+            <p class="hero-subtitle">
+                Powered by ERNIE LLM and PaddleOCR-VL. Multiple AI agents working together
+                to understand, analyze, and answer questions about your documents.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn-primary">Try Demo</a>
+                <a href="#neural-core" class="btn-secondary">See How It Works</a>
+            </div>
+        </section>
+
+        <section class="neural-section" id="neural-core">
+            <h2 class="section-title">Agent Network</h2>
+            <p class="section-desc">Watch data flow through the pipeline</p>
+            
+            <div class="neural-network">
+                <svg class="network-svg" viewBox="0 0 1000 400">
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Connections -->
+                    <g class="connections" stroke="#30363d" stroke-width="2" fill="none">
+                        <path d="M150,200 Q275,120 350,150"/>
+                        <path d="M150,200 Q275,280 350,250"/>
+                        <path d="M350,150 L450,200"/>
+                        <path d="M350,250 L450,200"/>
+                        <path d="M550,200 Q625,120 700,150"/>
+                        <path d="M550,200 L700,200"/>
+                        <path d="M550,200 Q625,280 700,250"/>
+                        <path d="M700,150 L850,200"/>
+                        <path d="M700,200 L850,200"/>
+                        <path d="M700,250 L850,200"/>
+                    </g>
+                    
+                    <!-- Input Node -->
+                    <g class="node">
+                        <circle cx="150" cy="200" r="40" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+                        <text x="150" y="205" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="600">IN</text>
+                        <text x="150" y="260" text-anchor="middle" fill="#7d8590" font-size="11">Document</text>
+                    </g>
+                    
+                    <!-- OCR Node -->
+                    <g class="node">
+                        <circle cx="350" cy="150" r="35" fill="#161b22" stroke="#06b6d4" stroke-width="2"/>
+                        <text x="350" y="155" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">OCR</text>
+                        <text x="350" y="200" text-anchor="middle" fill="#7d8590" font-size="10">PaddleOCR</text>
+                    </g>
+                    
+                    <!-- Coordinator Node -->
+                    <g class="node">
+                        <circle cx="500" cy="200" r="50" fill="#161b22" stroke="#2563eb" stroke-width="3"/>
+                        <text x="500" y="195" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="600">CORE</text>
+                        <text x="500" y="212" text-anchor="middle" fill="#7d8590" font-size="10">Coordinator</text>
+                        <text x="500" y="270" text-anchor="middle" fill="#7d8590" font-size="10">CAMEL-AI</text>
+                    </g>
+                    
+                    <!-- Analysis Node -->
+                    <g class="node">
+                        <circle cx="700" cy="150" r="35" fill="#161b22" stroke="#ec4899" stroke-width="2"/>
+                        <text x="700" y="155" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">ANA</text>
+                        <text x="700" y="200" text-anchor="middle" fill="#7d8590" font-size="10">Analysis</text>
+                    </g>
+                    
+                    <!-- Summary Node -->
+                    <g class="node">
+                        <circle cx="700" cy="200" r="35" fill="#161b22" stroke="#84cc16" stroke-width="2"/>
+                        <text x="700" y="205" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">SUM</text>
+                    </g>
+                    
+                    <!-- QA Node -->
+                    <g class="node">
+                        <circle cx="700" cy="250" r="35" fill="#161b22" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="700" y="255" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Q&A</text>
+                        <text x="700" y="300" text-anchor="middle" fill="#7d8590" font-size="10">Dialog</text>
+                    </g>
+                    
+                    <!-- Output Node -->
+                    <g class="node">
+                        <circle cx="850" cy="200" r="40" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+                        <text x="850" y="205" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="600">OUT</text>
+                        <text x="850" y="260" text-anchor="middle" fill="#7d8590" font-size="11">Result</text>
+                    </g>
+                </svg>
+                
+                <div class="network-controls">
+                    <button class="ctrl-btn" id="activateNetwork">
+                        <span>▶</span> Activate Network
+                    </button>
+                    <div class="network-status">
+                        <span class="status-dot"></span>
+                        <span id="networkStatus">Idle</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section" id="demo">
+            <h2 class="section-title">Try It Out</h2>
+            <p class="section-desc">Paste text and see the agents in action</p>
+            
+            <div class="demo-container">
+                <div class="demo-input-panel">
+                    <div class="panel-header">
+                        <span class="panel-title">Input</span>
+                        <button class="load-sample" id="loadSampleBtn">Load Sample</button>
+                    </div>
+                    <textarea id="docInput" placeholder="Paste document text here..."></textarea>
+                    <button class="process-btn" id="processBtn">Analyze Document</button>
+                </div>
+                
+                <div class="demo-output-panel">
+                    <div class="output-header">
+                        <div class="output-tabs">
+                            <button class="out-tab active" data-panel="log">Log</button>
+                            <button class="out-tab" data-panel="analysis">Analysis</button>
+                            <button class="out-tab" data-panel="summary">Summary</button>
+                            <button class="out-tab" data-panel="chat">Chat</button>
+                        </div>
+                    </div>
+                    
+                    <div class="output-content">
+                        <div class="out-panel active" id="out-log">
+                            <div class="neural-log" id="neuralLog">
+                                <p class="placeholder">Agent activity will appear here...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="out-panel" id="out-analysis">
+                            <div id="analysisResult"><p class="placeholder">Analysis results...</p></div>
+                        </div>
+                        
+                        <div class="out-panel" id="out-summary">
+                            <div id="summaryResult"><p class="placeholder">Summary...</p></div>
+                        </div>
+                        
+                        <div class="out-panel" id="out-chat">
+                            <div class="chat-messages" id="chatMessages"></div>
+                            <div class="chat-input">
+                                <input type="text" id="chatInput" placeholder="Ask about the document...">
+                                <button id="chatSend">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-section" id="tech">
+            <h2 class="section-title">Built With</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>ERNIE</strong>
+                    <span>Baidu LLM for understanding and generation</span>
+                </div>
+                <div class="tech-item">
+                    <strong>PaddleOCR-VL</strong>
+                    <span>Vision-language model for document OCR</span>
+                </div>
+                <div class="tech-item">
+                    <strong>CAMEL-AI</strong>
+                    <span>Multi-agent collaboration framework</span>
+                </div>
+                <div class="tech-item">
+                    <strong>FastAPI</strong>
+                    <span>Async Python backend</span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>DocuMind - ERNIE & PaddlePaddle Hackathon 2025</p>
+        </footer>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>

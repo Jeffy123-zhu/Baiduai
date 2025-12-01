@@ -1,0 +1,33 @@
+# ERNIE & PaddlePaddle
+erniebot>=0.5.0
+paddleocr>=2.7.0
+paddlepaddle>=2.5.0
+
+# PaddleOCR-VL (视觉语言模型)
+# 从 HuggingFace 加载: PaddlePaddle/PaddleOCR-VL
+transformers>=4.35.0
+
+# CAMEL-AI Framework (核心依赖)
+camel-ai>=0.2.0
+
+# Web Framework
+fastapi>=0.104.0
+uvicorn>=0.24.0
+python-multipart>=0.0.6
+
+# PDF Processing
+pdf2image>=1.16.0
+PyPDF2>=3.0.0
+poppler-utils  # pdf2image 依赖
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+httpx>=0.25.0
+Pillow>=10.0.0
+markdown>=3.5.0
+
+# Development
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
